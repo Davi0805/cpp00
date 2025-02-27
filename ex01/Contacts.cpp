@@ -69,7 +69,8 @@ void Contacts::set_first_name()
         if (!std::getline(std::cin, temp))
         {
             std::cout << RED << "[ABORT]" << RESET << ": EOF detected!" << std::endl;
-            exit(1);
+            std::cin.clear();
+            return ;
         }
         if (temp.empty())
         {
@@ -90,7 +91,8 @@ void Contacts::set_last_name()
         if (!std::getline(std::cin, temp))
         {
             std::cout << RED << "[ABORT]" << RESET << ": EOF detected!" << std::endl;
-            exit(1);
+            std::cin.clear();
+            return ;
         }
         if (temp.empty())
         {
@@ -112,7 +114,8 @@ void Contacts::set_nickname()
         if (!std::getline(std::cin, temp))
         {
             std::cout << RED << "[ABORT]" << RESET << ": EOF detected!" << std::endl;
-            exit(1);
+            std::cin.clear();
+            return ;
         }
         if (temp.empty())
         {
@@ -145,7 +148,10 @@ void Contacts::set_phone_number()
         {
             std::cerr << RED << "[ERROR]" << RESET << ": " << e.what() << '\n';
             if (std::string(e.what()) == "EOF detected!")
-                exit(1);
+            {
+                std::cin.clear();
+                return ;
+            }
         }
         
     }
@@ -162,7 +168,8 @@ void Contacts::set_secret()
         if (!std::getline(std::cin, temp))
         {
             std::cout << RED << "[ABORT]" << RESET << ": EOF detected!" << std::endl;
-            exit(1);
+            std::cin.clear();
+            return ;
         }
         if (temp.empty())
         {

@@ -31,7 +31,7 @@ Phonebook::Phonebook()
     this->_index = 0;
 }
 
-int Phonebook::Listen()
+void Phonebook::Listen()
 {
     std::string input;
     std::cout << GREEN << "[PHONEBOOK]" << RESET << " Welcome to Phonebook!" << std::endl;
@@ -56,11 +56,13 @@ int Phonebook::Listen()
         {
             std::cerr << RED << "[ERROR]" << RESET << e.what() << '\n';
             if (std::string(e.what()) == "EOF detected!")
-                return(1);
+            {
+                std::cin.clear();
+                return ;
+            }
         }
         
     }
-    return (0);
 }
 
 Phonebook::~Phonebook()
@@ -105,7 +107,10 @@ void Phonebook::Search()
         {   
             std::cerr << RED << "[ERROR]" << RESET << ": " << e.what() << '\n';
             if (std::string(e.what()) == "EOF detected!")
-                exit(1);
+            {
+                std::cin.clear();
+                return ;
+            }
         }
         
     }

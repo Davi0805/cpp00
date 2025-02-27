@@ -15,6 +15,8 @@
 
 #include "Contacts.hpp"
 #include <cstdlib>
+#include <cctype>
+#include <stdexcept>
 
 class Phonebook
 {
@@ -44,7 +46,7 @@ public:
     ~Phonebook();
 
     // Setup
-    int Listen();
+    void Listen();
 };
 
 
