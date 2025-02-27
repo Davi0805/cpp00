@@ -12,17 +12,15 @@
 
 #include "Contacts.hpp"
 
-// ANSI Color Macros
-
-#define RESET       "\033[0m"  // Reset to default color
-#define BLACK       "\033[30m" // Black
-#define RED         "\033[31m" // Red
-#define GREEN       "\033[32m" // Green
-#define YELLOW      "\033[33m" // Yellow
-#define BLUE        "\033[34m" // Blue
-#define MAGENTA     "\033[35m" // Magenta
-#define CYAN        "\033[36m" // Cyan
-#define WHITE       "\033[37m" // White
+#define RESET       "\033[0m"  
+#define BLACK       "\033[30m" 
+#define RED         "\033[31m" 
+#define GREEN       "\033[32m" 
+#define YELLOW      "\033[33m" 
+#define BLUE        "\033[34m" 
+#define MAGENTA     "\033[35m" 
+#define CYAN        "\033[36m" 
+#define WHITE       "\033[37m" 
 
 Contacts::Contacts()
 {
@@ -196,7 +194,7 @@ std::string Contacts::FieldFormat(std::string str, size_t size) const
 }
 
 // Overload ou Override
-std::ostream& operator<<(std::ostream& os, const Contacts& contact)
+/* std::ostream& operator<<(std::ostream& os, const Contacts& contact)
 {
     os << "-------------------------------------------" << '\n';
     os << "|" << contact.FieldFormat("First name", 10) << '|' << contact.FieldFormat(contact.get_first_name(), 30) << '|' << '\n';
@@ -210,6 +208,24 @@ std::ostream& operator<<(std::ostream& os, const Contacts& contact)
     os << "|" << contact.FieldFormat("Secret", 10) << '|' << contact.FieldFormat(contact.get_secret(), 30) << '|' << '\n';
      os << "-------------------------------------------" << '\n';
     return os;
+} */
+
+std::string Contacts::toString() const
+{
+    std::ostringstream os;
+    os << "-------------------------------------------\n";
+    os << "|" << FieldFormat("First name", 10) << '|' << FieldFormat(get_first_name(), 30) << "|\n";
+    os << "-------------------------------------------\n";
+    os << "|" << FieldFormat("Last name", 10) << '|' << FieldFormat(get_last_name(), 30) << "|\n";
+    os << "-------------------------------------------\n";
+    os << "|" << FieldFormat("Nickname", 10) << '|' << FieldFormat(get_nickname(), 30) << "|\n";
+    os << "-------------------------------------------\n";
+    os << "|" << FieldFormat("Phone Number", 10) << '|' << FieldFormat(get_phone_number(), 30) << "|\n";
+    os << "-------------------------------------------\n";
+    os << "|" << FieldFormat("Secret", 10) << '|' << FieldFormat(get_secret(), 30) << "|\n";
+    os << "-------------------------------------------\n";
+    
+    return os.str();
 }
 
 bool Contacts::IsOnlyDigits(std::string str)

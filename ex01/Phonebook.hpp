@@ -44,7 +44,7 @@ public:
     ~Phonebook();
 
     // Setup
-    void Listen();
+    int Listen();
 };
 
 

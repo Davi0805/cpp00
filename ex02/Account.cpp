@@ -89,13 +89,14 @@ int Account::checkAmount(void) const
 
 void Account::_displayTimestamp(void)
 {
-    /* std::time_t t = std::time(NULL);
+    std::time_t t = std::time(NULL);
     std::tm* now = std::localtime(&t);
     char buffer[20];
     std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", now);
-    std::cout << buffer << " "; */
+    std::cout << buffer << " ";
 
-    std::cout << "[19920104_091532] ";
+    // PARA DEBUGAR USANDO DIFF
+    /* std::cout << "[19920104_091532] "; */
 }
 
 void Account::displayAccountsInfos(void)

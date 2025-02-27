@@ -31,7 +31,7 @@ Phonebook::Phonebook()
     this->_index = 0;
 }
 
-void Phonebook::Listen()
+int Phonebook::Listen()
 {
     std::string input;
     std::cout << GREEN << "[PHONEBOOK]" << RESET << " Welcome to Phonebook!" << std::endl;
@@ -56,10 +56,11 @@ void Phonebook::Listen()
         {
             std::cerr << RED << "[ERROR]" << RESET << e.what() << '\n';
             if (std::string(e.what()) == "EOF detected!")
-                exit(1);
+                return(1);
         }
         
     }
+    return (0);
 }
 
 Phonebook::~Phonebook()
@@ -95,7 +96,7 @@ void Phonebook::Search()
             int index = atoi(input.c_str());
             if (index >= 0 && index <= 7)
             {
-                std::cout << contatos[index] << std::endl;
+                std::cout << contatos[index].toString() << std::endl;
                 break;
             }
             throw std::runtime_error("Invalid index!!");

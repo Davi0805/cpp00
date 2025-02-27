@@ -31,7 +31,8 @@ public:
     ~Contacts();
 
     // Overload ou Override
-    friend std::ostream& operator<<(std::ostream& os, const Contacts &contact); // Cout override
+    /* friend std::ostream& operator<<(std::ostream& os, const Contacts &contact); // Cout override */
+
 
     // Getter
     std::string get_first_name() const;
@@ -50,6 +51,7 @@ public:
     //UTILS
     std::string FieldFormat(std::string str, size_t size) const;
     bool IsOnlyDigits(std::string str);
+    std::string toString() const;
 };
 
 

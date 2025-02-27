@@ -30,6 +30,7 @@ int main(void)
     Phonebook phonebook;
 
     signal(SIGINT, sigint_handler);
-    phonebook.Listen();
+    if (phonebook.Listen() == 1)
+        return (0);
     return (0);
 }
